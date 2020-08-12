@@ -1,0 +1,80 @@
+---
+title: "Lattice"
+---
+
+```{r}
+library(lattice)
+```
+
+Boxplot
+
+```{r}
+bwplot(trees$Volume)
+bwplot(trees$Volume, main = "Árvores", xlab = "Volume")
+```
+
+Histograma
+Aspecto é a proporção, nint número de quebras, type: percent, count, density
+
+```{r}
+histogram(trees$Volume, main="Árvores", xlab="volume", aspect=1, type="percent", nint = 20)
+```
+
+Histograma conticional
+
+```{r}
+#peso das galinhas de acordo com a alimentação
+chickwts
+#histograma
+histogram(chickwts$weight)
+#agregamos os dados
+aggregate(chickwts$weight, by=list(chickwts$feed), FUN=sum)
+#hist. condiconal
+histogram( ~weight | feed, data = chickwts)
+```
+
+Grafico de dispersão condicional
+
+```{r}
+CO2
+xyplot(CO2$conc ~ CO2$uptake)
+# type é a origem
+xyplot(CO2$conc ~ CO2$uptake | CO2$Type)
+#refrigerado ou não
+xyplot(CO2$conc ~ CO2$uptake | CO2$Treatment)
+```
+
+```{r}
+esoph
+dotplot(esoph$alcgp ~ esoph$ncontrols, data = esoph)
+dotplot(esoph$alcgp ~ esoph$ncontrols | esoph$tobgp)
+```
+
+Matriz de dispersão
+
+```{r}
+splom(~CO2[4:5] | CO2$Type, CO2)
+```
+
+Densidade condicional 
+
+```{r}
+densityplot(~CO2$conc | CO2$Treatment, plot.points = FALSE)
+densityplot(~CO2$conc)
+densityplot(~CO2$conc | CO2$Treatment)
+densityplot(~CO2$conc | CO2$Treatment, plot.points = FALSE)
+```
+
+Gráfico 3D
+````{r}
+OrchardSprays
+cloud(decrease ~ rowpos * colpos, data=OrchardSprays)
+cloud(decrease ~ rowpos * colpos, groups = treatment ,data=OrchardSprays)
+```
+
+Level plot
+
+```{r}
+trees
+levelplot(Girth ~Height * Volume, data=trees)
+```

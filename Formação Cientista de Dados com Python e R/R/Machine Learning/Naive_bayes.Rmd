@@ -1,0 +1,60 @@
+---
+title: "Naive Bayes"
+---
+```{r}
+install.packages("e1071")
+library(e1071)
+```
+
+Dados de Credito do banco alemão
+
+```{r}
+head(credit)
+dim(credit)
+```
+
+
+Transformamos a classe em fator
+
+```{r}
+credit$class = as.factor(credit$class)
+```
+
+Separamos dados de terino e teste
+
+```{r}
+amostra = sample(2, 1000, replace = T, prob = c(0.7, 0.3))
+amostra
+creditotreino = credit[amostra==1,]
+creditoteste = credit[amostra==2,]
+```
+
+Dimenção do conjunto
+
+```{r}
+dim(creditoteste)
+dim(creditotreino)
+```
+
+Criamos o modelo
+
+```{r}
+modelo <- naiveBayes(class ~., creditotreino)
+modelo
+```
+
+Previsão
+
+```{r}
+predicao <- predict(modelo, creditoteste)
+predicao
+```
+
+Matriz de confusão
+
+```{r}
+confusao = table(creditoteste$class, predicao)
+taxaacerto = (confusao[1] + confusao[4])/sum(confusao)
+taxaerro = (confusao[2] + confusao[3])/sum(confusao)
+taxaacerto
+```

@@ -1,0 +1,52 @@
+---
+title: "Grafícos II"
+---
+Boxplot
+````{r}
+boxplot(trees$Volume, main="Árvores", xlab="volume")
+boxplot(trees$Volume, main="Árvores", xlab="volume", col="blue", horizontal = TRUE)
+boxplot(trees$Volume, main="Árvores", xlab="volume", col="blue", outline = FALSE)
+```
+
+```{r}
+#notch
+boxplot(trees$Height, main="Árvores", xlab="Altura",col="blue", notch=TRUE)
+#dados do grafico
+boxplot.stats(trees$Height)
+#lê apenas uma info
+boxplot.stats(trees$Height)$stats
+```
+
+Varios Graficos
+
+```{r}
+boxplot(trees)
+```
+
+Agregação
+
+````{r}
+InsectSprays
+spray = aggregate(. ~spray, data = InsectSprays, sum)
+spray
+```
+
+Gráfico de barras
+
+```{r}
+barplot(spray$count, col=gray.colors(6), xlab = "Spray", ylab="Total", names.arg = spray$spray)
+box()
+```
+
+Grafico de Setor - Pizza
+
+```{r}
+pie(spray$count, labels=spray$spray, main="Spray", col=c(1:6))
+```
+
+Pizza com legenda
+
+```{r}
+pie(spray$count, labels=NA, main="Spray", col=c(1:6))
+legend("bottomleft", legend=spray$spray, cex=1, fill=c(1:6))
+```

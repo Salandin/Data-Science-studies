@@ -1,0 +1,5 @@
+"0","grafo7 <- graph(edges= c(""Fernando"", ""Pedro"", ""José"", ""Antônio"", ""Fernando"", ""José"",""Fernando"", ""Antônio""))"
+"0","V(grafo7)$Peso = c(40,30,30,25)"
+"0","E(grafo7)$TipoAmizade = c(""Amigo"",""Inimigo"",""Inimigo"",""Amigo"")"
+"0","E(grafo7)$weight = c(1,2,1,3)"
+"0","V(grafo7)$type =""Humanos"""

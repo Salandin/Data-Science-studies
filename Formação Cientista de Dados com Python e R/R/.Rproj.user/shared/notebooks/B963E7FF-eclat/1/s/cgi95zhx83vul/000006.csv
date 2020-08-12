@@ -1,0 +1,6 @@
+"0","regras = arules::eclat(transacoes,parameter = list(minlen=2))"
+"1","Eclat
+"
+"1","
+parameter specification:
+"

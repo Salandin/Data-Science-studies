@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error in apriori(transacoes, parameter = list(supp = 0.5, conf = 0.5,  : \n  não foi possível encontrar a função \"apriori\"\n"}

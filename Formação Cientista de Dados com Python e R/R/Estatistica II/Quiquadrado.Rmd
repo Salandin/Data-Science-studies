@@ -1,0 +1,30 @@
+---
+title: "Quiquadrado"
+---
+
+Criamos o conjuntode dados para teste
+
+```{r}
+novela = matrix(c(19, 6, 43, 32), nrow = 2, byrow = T)
+rownames(novela) = c("MAsculino", "Feminino")
+colnames(novela) = c("Assiste", "Nao Asisste")
+novela
+```
+
+Executar Quiquadrado
+Valor de P é maior que 0.05 não há evidencias de diferenças significativa (hipótese nula)
+
+```{r}
+chisq.test(novela)
+```
+
+Alteramos a proporção de homens que assiste e não
+Executamos o teste novamente, agora valor de p menor que 0.05
+
+```{r}
+novela = matrix(c(22, 3, 43, 32), nrow = 2, byrow = T)
+rownames(novela) = c("MAsculino", "Feminino")
+colnames(novela) = c("Assiste", "Nao Asisste")
+novela
+chisq.test(novela)
+```

@@ -1,0 +1,62 @@
+---
+title: "Regressão Linear Múltipla"
+---
+```{r}
+mtcars
+dim(mtcars)
+```
+
+correlação
+
+````{r}
+cor(mtcars[1:4])
+corrgram(mtcars[1:4], order=TRUE, lower.panel = panel.shade,
+         upper.panel = panel.pie, text.panel = panel.txt,
+         main="Carros")
+```
+
+cilindradas/consumo
+
+```{r}
+plot(mtcars$mpg ~ mtcars$disp, ylab="Consumo", xlab = "Cilindradas", main = "Carros")
+```
+usando cilindradas pra prever consumo
+
+```{r}
+modelo = lm(mpg ~ disp, data=mtcars)
+modelo
+```
+
+coef. de determinação .71 da variavel dependente é explicada pela var. explanatória
+
+```{r}
+summary(modelo)$r.squared
+summary(modelo)$adj.r.squared
+```
+
+````{r}
+plot(mpg ~ disp, data=mtcars, ylab="Consumo", xlab = "Cilindradas", main = "Carros")
+abline(modelo)
+```
+
+prevendo consumo de 200 cilindradas
+
+```{r}
+predict(modelo, data.frame(disp = 200))
+```
+
+adcionamos mais duas variaveis indepedentes, hp e cilindros
+
+```{r}
+modelo = lm(mpg ~ disp + hp + cyl, data=mtcars)
+modelo
+```
+
+```{r}
+summary(modelo)$r.squared
+summary(modelo)$adj.r.squared
+```
+
+````{r}
+predict(modelo, data.frame(disp = 200, hp = 100, cyl = 4))
+```

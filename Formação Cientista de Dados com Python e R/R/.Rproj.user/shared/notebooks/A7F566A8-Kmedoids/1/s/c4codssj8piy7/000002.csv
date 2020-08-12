@@ -1,0 +1,1 @@
+"0","cluster = cluster::pam(iris[,1:4], k=3)"

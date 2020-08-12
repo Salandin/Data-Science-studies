@@ -1,0 +1,5 @@
+"0","hotenco = mltools::one_hot(as.data.table(tit[,1:3]))
+"
+"2","Error in as.data.table(tit[, 1:3]) : 
+  não foi possível encontrar a função ""as.data.table""
+"

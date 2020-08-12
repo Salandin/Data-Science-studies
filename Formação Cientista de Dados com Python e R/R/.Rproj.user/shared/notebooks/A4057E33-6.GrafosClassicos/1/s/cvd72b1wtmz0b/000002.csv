@@ -1,0 +1,6 @@
+"0","#install.packages(""igraph"")"
+"0","#install.packages(""igraphdata"")"
+"0","library(igraph)"
+"0","library(igraphdata)"
+"2","Error in library(igraphdata) : there is no package called ‘igraphdata’
+"

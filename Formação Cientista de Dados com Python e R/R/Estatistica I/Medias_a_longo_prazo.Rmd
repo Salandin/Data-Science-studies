@@ -1,0 +1,19 @@
+---
+title: "Médias a Longo Prazo"
+---
+
+Pequenas e grandes amostras
+espera-se uma média de 3,5
+amostra pequena
+
+```{r}
+x = sample(1:6, 6, replace = T)
+mean(x)
+```
+
+amostra grande
+
+```{r}
+x = sample(1:6, 100000000, replace = T)
+mean(x)
+```

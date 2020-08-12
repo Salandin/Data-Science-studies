@@ -1,0 +1,1 @@
+{"frames":[{"func":"plot(regras, method = \"graph\", control = list(type = \"items\"))","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in plot(regras, method = \"graph\", control = list(type = \"items\")) : \n  objeto 'regras' não encontrado\n"}

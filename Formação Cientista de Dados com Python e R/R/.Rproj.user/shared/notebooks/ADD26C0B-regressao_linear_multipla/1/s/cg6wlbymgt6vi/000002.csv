@@ -1,0 +1,23 @@
+"0","modelo = lm(mpg ~ disp, data=mtcars)"
+"0","modelo"
+"1","
+Call:
+"
+"1",""
+"1","lm(formula = mpg ~ disp, data = mtcars)"
+"1",""
+"1","
+
+"
+"1","Coefficients:
+"
+"1","(Intercept)  "
+"1","       disp  "
+"1","
+"
+"1","   29.59985  "
+"1","   -0.04122  "
+"1","
+"
+"1","
+"

@@ -1,0 +1,4 @@
+"0","regras = apriori(transacoes, parameter = list(supp=0.5, conf=0.5, minlen=2))"
+"2","Error in apriori(transacoes, parameter = list(supp = 0.5, conf = 0.5,  : 
+  não foi possível encontrar a função ""apriori""
+"

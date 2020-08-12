@@ -1,0 +1,50 @@
+---
+title: "Arvores de Decisão para regressão"
+---
+
+```{r}
+#install.packages("rpart")
+library(rpart)
+library(forecast)
+```
+
+Conjunto de dados
+
+```{r}
+iris
+```
+
+Criamos o modelo prevendo Sepal.Length
+
+```{r}
+modelo = rpart(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width + Species , data=iris)
+modelo
+summary(modelo)
+```
+
+Visualização
+
+```{r}
+plot(modelo)
+text(modelo)
+```
+
+Previsão
+
+```{r}
+predicao = predict(modelo, iris)
+head(predicao)
+```
+
+Comparando previsão com dados reais
+
+```{r}
+comparacao = cbind(predicao, iris$Sepal.Length, predicao - iris$Sepal.Length)
+head(comparacao)
+```
+
+Verificamos métricas de erro de nosso modelo
+
+````{r}
+accuracy(predicao, iris$Sepal.Length)
+```

@@ -1,0 +1,4 @@
+"0","  return((x-min(x)/max(x)-min(x)))
+"
+"2","Erro: nenhuma função da qual retornar, pulando para o nível superior
+"

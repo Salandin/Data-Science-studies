@@ -1,0 +1,4 @@
+"0","conexao = mongo(collection = ""posts"", db = ""dbmidias"", url = ""mongodb://localhost"")
+"
+"2","Erro: No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+"

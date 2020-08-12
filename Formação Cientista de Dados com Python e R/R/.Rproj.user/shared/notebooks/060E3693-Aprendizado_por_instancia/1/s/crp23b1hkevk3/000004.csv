@@ -1,0 +1,27 @@
+"0","install.packages('class')
+"
+"2","WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+"
+"2","Installing package into ‘C:/Users/rafa_/Documents/R/win-library/4.0’
+(as ‘lib’ is unspecified)
+"
+"2","tentando a URL 'https://cran.rstudio.com/bin/windows/contrib/4.0/class_7.3-17.zip'
+"
+"2","Content type 'application/zip'"
+"2"," length 108465 bytes (105 KB)
+"
+"2","downloaded 105 KB
+
+"
+"1","package â€˜classâ€™ successfully unpacked and MD5 sums checked
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	C:\Users\rafa_\AppData\Local\Temp\RtmpyeTCjo\downloaded_packages"
+"1",""
+"1","
+"

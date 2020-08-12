@@ -1,0 +1,4 @@
+"0","transacoes = read.transactions(""transacoes.txt"", format=""basket"", sep="","")"
+"2","Error in read.transactions(""transacoes.txt"", format = ""basket"", sep = "","") : 
+  não foi possível encontrar a função ""read.transactions""
+"

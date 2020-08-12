@@ -1,0 +1,6 @@
+"0","regras = apriori(transacoes, parameter = list(supp=0.5, conf=0.5, minlen=2))"
+"1","Apriori
+"
+"1","
+Parameter specification:
+"

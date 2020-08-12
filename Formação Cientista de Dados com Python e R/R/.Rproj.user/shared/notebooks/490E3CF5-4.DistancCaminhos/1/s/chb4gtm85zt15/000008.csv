@@ -1,0 +1,17 @@
+"0","#busca o caminho mais curto"
+"0","#output lista de vertices ou arestas, both retorna os dois"
+"0","caminho = shortest_paths(dist,V(dist)$name==""A"",V(dist)$name==""H"", output=c(""both""))"
+"0","caminho$vpath"
+"1","[[1]]
+"
+"1","+ 5/8 vertices, named, from cbd981a:
+"
+"1",""
+"1","[1] A B F G H"
+"1","
+"
+"1",""
+"1","
+"
+"0","#conferindo"
+"0","plot(dist, edge.label = E(dist)$weight)"

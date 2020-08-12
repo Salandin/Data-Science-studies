@@ -1,0 +1,1 @@
+"0","plot(iris$Sepal.Length, iris$Sepal.Width, col = cluster$cluster, pch = 20, main=""iris"")"

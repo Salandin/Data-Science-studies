@@ -1,0 +1,2 @@
+"0","previ <- forecast(arima, h=12)"
+"0","plot(previ)"

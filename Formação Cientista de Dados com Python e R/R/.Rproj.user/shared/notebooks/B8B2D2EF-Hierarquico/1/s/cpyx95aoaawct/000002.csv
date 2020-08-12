@@ -1,0 +1,2 @@
+"0","g2 = factoextra::fviz_cluster(hc, ellipse.type = ""norm"", main=""Cluster Hierárquico"")"
+"0","plot(g2)"

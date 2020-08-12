@@ -1,0 +1,5 @@
+"0","Eleicao <- read_csv(""G:/backup/Data Science/Formação Cientista de Dados com Python e R/Arquivos/Eleicao.csv"", sep=';', header=T)
+"
+"2","Error in read_csv(""G:/backup/Data Science/Formação Cientista de Dados com Python e R/Arquivos/Eleicao.csv"",  : 
+  unused arguments (sep = "";"", header = T)
+"

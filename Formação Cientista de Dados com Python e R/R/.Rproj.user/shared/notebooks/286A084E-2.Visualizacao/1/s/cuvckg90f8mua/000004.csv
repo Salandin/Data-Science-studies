@@ -1,0 +1,2 @@
+"0","#vertice retângulo"
+"0","plot(grafo7, vertex.size=vertex_attr(grafo7)$Peso, edge.width=edge_attr(grafo7)$weight, vertex.color= vertex_attr(grafo7)$Cor, edge.curved=0.4, frame=TRUE, main=""Grafo"", vertex.shape=""square"")"

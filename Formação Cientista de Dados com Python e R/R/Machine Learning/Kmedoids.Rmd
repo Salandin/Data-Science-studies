@@ -1,0 +1,24 @@
+---
+title: "Kmedoids"
+---
+
+Gera o cluster
+
+```{r}
+cluster = cluster::pam(iris[,1:4], k=3)
+```
+
+Vizualiza
+
+```{r}
+cluster
+plot(cluster)
+table(iris$Species, cluster$clustering)
+```
+
+Vizualização com factoextra
+
+```{r}
+g = factoextra::fviz_cluster(list(data = iris[,1:4], cluster=cluster$cluster), ellipse.type = "norm", main="cluster")
+plot(g)
+```

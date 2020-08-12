@@ -1,0 +1,23 @@
+"0","modelo = lm(speed ~ dist, data = cars)"
+"0","modelo"
+"1","
+Call:
+"
+"1",""
+"1","lm(formula = speed ~ dist, data = cars)"
+"1",""
+"1","
+
+"
+"1","Coefficients:
+"
+"1","(Intercept)  "
+"1","       dist  "
+"1","
+"
+"1","     8.2839  "
+"1","     0.1656  "
+"1","
+"
+"1","
+"

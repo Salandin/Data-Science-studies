@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error in read.transactions(\"transacoes.txt\", format = \"basket\", sep = \",\") : \n  não foi possível encontrar a função \"read.transactions\"\n"}

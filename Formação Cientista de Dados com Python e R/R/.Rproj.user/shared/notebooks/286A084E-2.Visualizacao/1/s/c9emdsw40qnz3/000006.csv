@@ -1,0 +1,7 @@
+"0","#grafo de relacionamentos"
+"0","grafo8 = read_graph(""Grafo.graphml"", format = c(""graphml""))"
+"0","tkplot(grafo8)"
+"1","[1]"
+"1"," 2"
+"1","
+"

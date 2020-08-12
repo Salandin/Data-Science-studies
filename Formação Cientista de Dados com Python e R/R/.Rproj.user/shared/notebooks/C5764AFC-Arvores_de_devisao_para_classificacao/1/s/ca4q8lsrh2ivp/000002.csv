@@ -1,0 +1,2 @@
+"0","cred['Result'] = ifelse(cred$bad >= 0.5,'bad','good')"
+"0","cred"

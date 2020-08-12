@@ -1,0 +1,2 @@
+"0","grafo3 = graph(edges=c(1,2,2,3,3,4,4,1),directed=F )"
+"0","plot(grafo3)"

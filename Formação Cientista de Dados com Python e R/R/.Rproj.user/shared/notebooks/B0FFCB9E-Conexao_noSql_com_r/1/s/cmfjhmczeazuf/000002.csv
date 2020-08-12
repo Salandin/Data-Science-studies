@@ -1,0 +1,3 @@
+"0","dados = conexao$find()"
+"2","Error in conexao$find : $ operator not defined for this S4 class
+"

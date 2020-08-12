@@ -1,0 +1,49 @@
+---
+title: "Seleção de atributos"
+---
+
+```{r}
+#install.packages("randomForest")
+library(e1071)
+library(randomForest)
+credit$class = as.factor(credit$class)
+```
+Divido os dados em treino e teste
+Definimos sementes para ser possível repetir o experimento
+
+```{r}
+set.seed(234)
+amostra = sample(2,1000,replace=TRUE,prob=c(0.7,0.3))
+creditotreino = credit[amostra==1,]
+creditoteste = credit[amostra==2,]
+```
+
+Criamos um primeiro modelo com todos os atributos
+avaliamos a acurácia
+
+```{r}
+modelo = svm(class ~., creditotreino)
+predicao = predict(modelo, creditoteste)
+confusao = table(creditoteste$class, predicao)
+taxaacerto = (confusao[1] + confusao[4])/sum(confusao)
+taxaacerto
+```
+
+Aplicamos um método de seleção de atributos
+
+```{r}
+importacia = randomForest(class ~., data = creditotreino)
+col = importance(importacia)
+col
+varImpPlot(importacia)
+```
+
+Criamos um segundo modelo com as variáveis independentes mais importantes
+
+```{r}
+modelo = svm(class ~ credit_amount + age + duration + checking_status, creditotreino)
+predicao = predict(modelo, creditoteste)
+confusao = table(creditoteste$class, predicao)
+taxaacerto = (confusao[1] + confusao[4])/sum(confusao)
+taxaacerto
+```

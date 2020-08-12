@@ -1,0 +1,2 @@
+"0","g1 = factoextra::fviz_dend(hc, show_labels = FALSE, rect = TRUE, main = ""Cluster Hierárquico"")"
+"0","plot(g1)"

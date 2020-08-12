@@ -1,0 +1,44 @@
+---
+title: "Anova"
+---
+
+```{r}
+tratamento = read.csv('../Arquivos/anova.csv', sep = ";")
+tratamento
+```
+
+Visualizamos as distribuições dos remedios por horas
+
+````{r}
+boxplot(tratamento$Horas ~ tratamento$Remedio)
+```
+
+Executamos Alanlise de variancia
+Observar valor de p maior que 0.05 (Pr(>F))
+Hipotese nula
+
+```{r}
+an = aov(Horas ~ Remedio, data=tratamento)
+summary(an)
+```
+
+Anova de dois fatores
+Nenhum valor de P mostra diferença significatica
+
+```{r}
+an = aov(Horas ~ Remedio*Sexo, data=tratamento)
+summary(an)
+```
+
+Se houver diferença o teste de Tukey é executado
+
+```{r}
+tukey = TukeyHSD(an)
+tukey
+```
+
+Grafico de teste
+
+```{r}
+plot(tukey)
+```

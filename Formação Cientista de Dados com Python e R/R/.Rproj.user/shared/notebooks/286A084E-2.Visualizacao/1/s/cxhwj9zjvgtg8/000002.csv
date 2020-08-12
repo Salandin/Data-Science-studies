@@ -1,0 +1,2 @@
+"0","#tamanho do vértice de acordo com o peso"
+"0","plot(grafo7, vertex.size=vertex_attr(grafo7)$Peso)"

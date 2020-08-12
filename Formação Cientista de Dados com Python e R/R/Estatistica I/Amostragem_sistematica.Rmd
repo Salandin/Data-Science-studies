@@ -1,0 +1,36 @@
+---
+title: "Amostragem Sistemática"
+---
+Amostra Sistematica
+
+```{r}
+install.packages("TeachingSampling")
+library(TeachingSampling)
+```
+
+Amostra de tamanho 150, 10 grupos
+
+```{r}
+amostra = S.SY(150, 10)
+amostra
+```
+
+```{r}
+dim(amostra)
+```
+
+Usamos em iris
+
+```{r}
+amostrairis = iris[amostra,]
+```
+
+Verificamos
+
+```{r}
+amostrairis
+```
+
+````{r}
+dim(amostrairis)
+```

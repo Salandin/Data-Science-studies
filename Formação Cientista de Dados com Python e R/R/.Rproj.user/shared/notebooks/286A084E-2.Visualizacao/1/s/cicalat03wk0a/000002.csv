@@ -1,0 +1,4 @@
+"0","#cores aos vértices em um atributo"
+"0","vertex_attr(grafo7)$Cor = c(""Blue"", ""Red"", ""Yellow"", ""Green"")"
+"0","#plot com cores a partir do atributo"
+"0","plot(grafo7, vertex.size=vertex_attr(grafo7)$Peso, edge.width=edge_attr(grafo7)$weight, vertex.color= vertex_attr(grafo7)$Cor)"

@@ -1,0 +1,1 @@
+"0","plot(Eleicao$DESPESAS, Eleicao$SITUACAO, col=""red"", pch=20)"

@@ -1,0 +1,158 @@
+---
+title: "Limpeza e Tratamento de Dados"
+---
+
+```{r}
+# importa dados, string vazias como NA, strings como fatores
+dados = read.csv("Churn.csv", sep = ";", na.strings = "", stringsAsFactors = TRUE)
+head(dados)
+summary(dados)
+```
+Colunas
+
+```{r}
+colnames(dados) <-c("Id", "Score","Estado","Genero","Idade","Patrimonio","Saldo","Produtos","TemCartCredito","Ativo","Salario","Saiu")
+head(dados)
+```
+
+Explorar Dados, colunas caegóricas
+
+```{r}
+#Estados
+counts = table(dados$Estado)
+barplot(counts, main = "Estados", xlab = "Estados")
+
+#Genero
+counts = table(dados$Genero)
+barplot(counts, main = "Gênero", xlab = "Gênero")
+```
+
+Explorar, colunas numéricas
+
+```{r}
+#Score
+summary(dados$Score)
+boxplot(dados$Score)
+hist(dados$Score)
+```
+
+```{r}
+#Idade
+summary(dados$Idade)
+boxplot(dados$Idade)
+hist(dados$Idade)
+```
+
+```{r}
+#Saldo
+summary(dados$Saldo)
+boxplot(dados$Saldo)
+hist(dados$Saldo)
+```
+
+```{r}
+#Salario
+summary(dados$Salario)
+boxplot(dados$Salario)
+hist(dados$Salario)
+```
+
+Valores Faltantes - NAs
+
+```{r}
+dados[!complete.cases(dados),]
+```
+
+Salário
+
+```{r}
+#tratar salários
+summary(dados$Salario)
+#ver mediana
+median(dados$Salario, na.rm = T)
+#atribuir mediana a NAs
+dados[is.na(dados$Salario),]$Salario = median(dados$Salario, na.rm = T)
+#Buscar NAs em salario pra checar
+dados[!complete.cases(dados$Salario)]
+```
+
+Falta de padronização em genero
+
+```{r}
+unique(dados$Genero)
+summary(dados$Genero)
+#Transforma F e Fem em Feminino
+#" ", M em masculino (moda)
+dados[is.na(dados$Genero) | dados$Genero == "M", ]$Genero = "Masculino"
+dados[dados$Genero == "F" | dados$Genero == "Fem", ]$Genero = "Feminino"
+#ver resultados
+summary(dados$Genero)
+#remover levels não utilizado
+dados$Genero = factor(dados$Genero)
+#visualizar de novo
+summary(dados$Genero)
+```
+
+Idades fora do dominio
+
+```{r}
+summary(dados$Idade)
+#fora do dominio numérioc - ver idades anormais
+dados[dados$Idade<0 | dados$Idade>110,]$Idade
+#não temos NAs
+dados[is.na(dados$Idade),]
+#Opção de preencher com a mediana
+median(dados$Idade)
+#subtituição
+dados[dados$Idade<0 | dados$Idade> 110,]$Idade = median(dados$Idade)
+#bucamos novamente
+dados[dados$Idade<0 | dados$Idade>110,]$Idade
+summary(dados$Idade)
+```
+
+Dados duplicados
+
+```{r}
+#buscar duplicados pelo ID
+x = dados[duplicated(dados$Id),]
+x
+# removemos pelo ID e não pelo indice
+dados = dados[ !dados$Id %in% c(x$Id),]
+#buscamos novamente a linha duplicada
+dados[dados$Id == x$Id, ]
+#verificamos novamente
+x = dados[duplicated(dados$Id),]
+x
+```
+
+Estados fora de dominio
+
+```{r}
+#fora do dominio categórico
+unique(dados$Estado)
+summary(dados$Estado)
+#Preencher com a moda, rs
+dados[!dados$Estado %in% c("RS","SC","PR"),]$Estado = "RS"
+summary(dados$Estado)
+#Removemos os que não foram usados
+dados$Estado = factor(dados$Estado)
+#vemos novamente
+summary(dados$Estado)
+```
+
+Outlines
+
+```{r}
+# criando um parametro de desvio padrão
+desv = sd(dados$Salario, na.rm = T)
+dados[dados$Salario >= 2*desv, ]$Salario
+#outra forma, resultado semelhante, mas sem os NAs
+boxplot(dados$Salario)
+x = boxplot(dados$Salario)$out
+x
+#atualizando todos para a mediana
+median(dados$Salario)
+dados[dados$Salario >= 2*desv, ]$Salario = median(dados$Salario)
+#checamos novamente se sairam os outlines
+dados[dados$Salario >= 2*desv, ]$Salario 
+```

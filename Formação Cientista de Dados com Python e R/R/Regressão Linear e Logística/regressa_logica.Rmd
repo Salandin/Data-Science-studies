@@ -1,0 +1,56 @@
+---
+title: "Regressão Logíca"
+---
+
+```{r}
+Eleicao
+```
+
+Graficos e visualização
+
+```{r}
+plot(Eleicao$DESPESAS, Eleicao$SITUACAO)
+summary(Eleicao)
+```
+
+Correlação
+
+```{r}
+cor(Eleicao$DESPESAS, Eleicao$SITUACAO)
+```
+
+Modelo de Regressão logistica
+
+```{r}
+modelo = glm(SITUACAO~DESPESAS, data = Eleicao, family = "binomial")
+summary(modelo)
+```
+
+```{r}
+plot(Eleicao$DESPESAS, Eleicao$SITUACAO, col="red", pch=20)
+points(Eleicao$DESPESAS, modelo$fitted, pch = 4)
+```
+
+Testar modelo 
+
+```{r}
+prever = predict(modelo, newdata = Eleicao, type="response")
+prever = prever >= 0.5
+prever
+```
+
+Avaliar performance
+
+```{r}
+confusao = table(prever, Eleicao$SITUACAO)
+taxaacerto = (confusao[1] + confusao[4]) / sum(confusao)
+taxaacerto
+```
+
+Previsão
+
+```{r}
+novos.candidatos$RESULT = predict(modelo , newdata = novos.candidatos, type="response")
+novos.candidatos$RESULT
+novos.candidatos$RESULT >= 0.5
+```

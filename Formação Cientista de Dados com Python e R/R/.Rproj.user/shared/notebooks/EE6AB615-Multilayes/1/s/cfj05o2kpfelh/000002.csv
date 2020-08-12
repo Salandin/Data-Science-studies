@@ -1,0 +1,2 @@
+"0","resultado$class = colnames(resultado[,1:3])[max.col(resultado[,1:3], ties.method = ""first"")]"
+"0","resultado"

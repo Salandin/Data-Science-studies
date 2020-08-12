@@ -1,0 +1,2 @@
+"0","#tamanho da areasta de acordo com o peso"
+"0","plot(grafo7, vertex.size=vertex_attr(grafo7)$Peso, edge.width=edge_attr(grafo7)$weight)"

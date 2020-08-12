@@ -1,0 +1,39 @@
+---
+title: "Kmeans"
+---
+
+```{r}
+iris
+```
+
+Geramos o cluster
+
+```{r}
+cluster = kmeans(iris[1:4], centers=3)
+cluster
+table(iris$Species,cluster$cluster)
+```
+
+Grafico
+
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width, col = cluster$cluster, pch = 20, main="iris")
+plot(iris[,1:4], col=cluster$cluster, main="Iris")
+```
+
+Grafico especializado
+
+```{r}
+g2 = factoextra::fviz_cluster(cluster, data = iris[1:4], ellipse.type = "convex",
+                              main = "Cluster")
+plot(g2)
+```
+
+Adicionamos o cluster aos dados originais
+
+```{r}
+iris2 = iris
+iris2['grupos'] = cluster$cluster
+iris2
+write.csv(iris2, file='iris2.csv')
+```

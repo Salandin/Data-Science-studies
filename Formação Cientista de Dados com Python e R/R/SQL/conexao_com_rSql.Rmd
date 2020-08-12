@@ -1,0 +1,40 @@
+---
+title: "Conexão com o SQL"
+---
+
+```{r}
+library(RPostgreSQL)
+```
+
+Conexao com o banco de dados
+
+```{r}
+conexao = dbConnect("PostgreSQL",
+                    dbname="postgres",
+                    host="localhost",
+                    port=5432,
+                    user="postgres",
+                    password="(alprazolam)"
+                    )
+```
+
+Consulta SQL
+
+```{r}
+sql = "SELECT quantidade, valortotal, produto, total FROM itensvenda iv
+       INNER JOIN vendas v ON (iv.IDVenda = v.IDVenda)
+       INNER JOIN produtos p ON (iv.IDProduto = p.IDProduto)"
+vendas = dbGetQuery(conexao, sql)
+```
+
+Dados retornados
+
+```{r}
+class(vendas)
+dim(vendas)
+head(vendas)
+```
+
+```{r}
+dbDisconnect(conexao )
+```

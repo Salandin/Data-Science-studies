@@ -1,0 +1,42 @@
+---
+title: "Ensamble Learning"
+---
+```{r}
+credit <- Credit
+```
+```{r}
+credit$class <- as.factor(credit$class)
+head(credit)
+```
+
+Separa dados de treino e teste
+
+```{r}
+amostra <- sample(2, 1000, replace=T, prob=c(0.7,0.3) )
+creditotreino = credit[amostra==1,]
+creditoteste = credit[amostra==2,]
+```
+
+Gera o modelo
+
+```{r}
+floresta = randomForest::randomForest(class ~., data=creditotreino, ntree=100, importance=T)
+floresta
+plot(floresta)
+```
+
+Previsão
+
+```{r}
+previsao = predict(floresta, creditoteste)
+previsao
+confusao = table(previsao, creditoteste$class)
+confusao
+```
+
+Avaliação de performance
+
+```{r}
+taxaacerto = (confusao[1] + confusao[4])/sum(confusao)
+taxaacerto
+```

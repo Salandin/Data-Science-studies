@@ -1,0 +1,32 @@
+---
+title: "Tabelas"
+---
+Package
+```{r}
+install.packages("stargazer")
+library(stargazer)
+```
+
+Formato LaTex
+
+````{r}
+stargazer(iris)
+```
+
+html
+
+```{r}
+stargazer(iris, type="html")
+```
+
+texto
+
+```{r}
+stargazer(iris, type="text")
+```
+
+Salvar em disco
+
+```{r}
+stargazer(dados, out = "dados.tex", summary = FALSE)
+```

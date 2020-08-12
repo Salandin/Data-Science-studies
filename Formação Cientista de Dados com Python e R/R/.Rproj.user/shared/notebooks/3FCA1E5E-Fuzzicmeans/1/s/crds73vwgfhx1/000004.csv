@@ -1,0 +1,2 @@
+"0","g = factoextra::fviz_cluster(list(data = iris[,1:4], cluster=cluster$cluster), ellipse.type = ""norm"", main=""Cluster"")"
+"0","plot(g)"

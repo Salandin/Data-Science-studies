@@ -1,0 +1,85 @@
+---
+title: "Data Mining"
+---
+
+````{r}
+library(tm)
+library(textreadr)
+library(wordcloud)
+library(RColorBrewer)
+```
+
+Criamos o corpus
+
+```{r}
+# verficamos as fontes disponiveis
+getSources()
+#os formatos
+getReaders()
+#Criamos o corpus PCourpus():fisico, Vcourpus: voltail em memória
+#pegamos dados da wiki
+x = read_html("https://en.wikipedia.org/wiki/Benzodiazepine")
+corpus = VCorpus(VectorSource(x), readerControl = list(reader=readPlain, language = "eng"))
+```
+
+Exploramos
+
+```{r}
+#resumo 
+inspect(corpus)
+# corpus de 1 a 100
+inspect(corpus[1:100])
+# metadados do corpus
+inspect(corpus[[1]])
+# visualiza 1 corpus
+inspect(corpus[[2]])
+#texto separado por linha
+as.character(corpus[[2]])
+#só uma linha
+as.character(corpus[[200]])[1]
+```
+
+Tratamento diversos
+
+```{r}
+#tm_map para executar as transformações
+stopwords("portuguese")
+#remove
+corpus = tm_map(corpus, removeWords, stopwords('english'))
+#execesso de espaços em branco
+corpus = tm_map(corpus, stripWhitespace)
+#pontuação
+corpus = tm_map(corpus, removePunctuation)
+#numeros
+corpus = tm_map(corpus, removeNumbers)
+```
+
+Primeiro Wordcloud
+
+```{r}
+wordcloud(corpus, max.words = 90, random.order = T, colors = rainbow(10), rot.per = 0.5, use.r.layout = T)
+```
+
+Matriz de termos frêquentes
+
+````{r}
+freq = TermDocumentMatrix(corpus)
+freq
+
+#tranformando em matrix do R
+matriz = as.matrix(freq)
+#ordem de frequencia
+matriz = sort(rowSums(matriz), decreasing = TRUE)
+matriz = data.frame(word=names(matriz), freq=matriz)
+head(matriz, n=100)
+#encontra os mais frequentes
+findFreqTerms(freq, 500, Inf)
+#remove os menos frequentes
+removeSparseTerms(freq, 0.4)
+```
+
+Nova nuvem
+
+```{r}
+wordcloud(matriz$word, matriz$freq, max.words = 50, random.order = T, colors = rainbow(8), rot.per = 0.5, use.r.layout = T)
+```

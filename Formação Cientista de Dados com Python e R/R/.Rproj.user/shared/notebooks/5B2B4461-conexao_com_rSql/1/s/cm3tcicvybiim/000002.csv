@@ -1,0 +1,7 @@
+"0","conexao = dbConnect(""PostgreSQL"","
+"0","                    dbname=""postgres"","
+"0","                    host=""localhost"","
+"0","                    port=5432,"
+"0","                    user=""postgres"","
+"0","                    password=""(alprazolam)"""
+"0","                    )"

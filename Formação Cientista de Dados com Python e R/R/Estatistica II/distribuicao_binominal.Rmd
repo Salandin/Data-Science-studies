@@ -1,0 +1,29 @@
+---
+title: "Binominal"
+---
+
+x = eventos, p = probabilidade, size = eventos
+Sejogar uma moeda 5 vezes, qual a prob. de dar cara 3 vezes?
+
+```{r}
+dbinom(x = 3,size = 5, prob = 0.5)
+```
+
+Se eu passer 4 sinais de quatro tempos cada. Qual a probabilidade de eu pegar 0, 1, 2, 3, 4 sinais verdes
+
+```{r}
+pbinom(q=4, size=12, prob = 0.25)
+```
+
+se você fizer a prova de um concurso com 12 questões. "chutando tudo", qual a probabilidae de acertar 7 questões
+
+```{r}
+dbinom(x=7,size=12,prob=0.25)
+```
+
+Se eu passer 4 sinais de quatro tempos cada. Qual a probabilidade de eu pegar 3 ou mais sinais verdes
+
+```{r}
+pbinom(q=2, size=4, prob=0.25, lower.tail = F)
+dbinom(x = 3, size = 4, prob=0.25) + dbinom(x = 4, size = 4, prob=0.25)
+```

@@ -1,0 +1,4 @@
+"0","plot(regras, method=""graph"", control=list(type=""items""))"
+"2","Error in plot(regras, method = ""graph"", control = list(type = ""items"")) : 
+  objeto 'regras' não encontrado
+"

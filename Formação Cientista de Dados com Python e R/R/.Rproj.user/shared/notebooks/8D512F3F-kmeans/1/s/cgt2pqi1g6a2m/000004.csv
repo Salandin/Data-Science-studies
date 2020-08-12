@@ -1,0 +1,3 @@
+"0","g2 = factoextra::fviz_cluster(cluster, data = iris[1:4], ellipse.type = ""convex"","
+"0","                              main = ""Cluster"")"
+"0","plot(g2)"

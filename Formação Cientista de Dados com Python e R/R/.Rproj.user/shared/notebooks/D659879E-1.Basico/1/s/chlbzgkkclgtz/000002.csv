@@ -1,0 +1,2 @@
+"0","grafo8 = graph_from_literal(1-2-3-4-1,5)"
+"0","plot(grafo8)"

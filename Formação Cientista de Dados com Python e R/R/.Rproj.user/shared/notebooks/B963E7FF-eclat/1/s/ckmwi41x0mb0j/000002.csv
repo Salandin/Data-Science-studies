@@ -1,0 +1,3 @@
+"0","regras = arules::eclat(transacoes,parameter = list(minlen=2))"
+"2","Error in .class1(object) : objeto 'transacoes' não encontrado
+"

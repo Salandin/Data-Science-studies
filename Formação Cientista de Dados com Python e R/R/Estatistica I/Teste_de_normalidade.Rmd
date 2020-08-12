@@ -1,0 +1,57 @@
+---
+title: "Testes de Normalidade"
+---
+
+Repetir o experimento
+
+```{r}
+set.seed(123412)
+```
+
+Gera mil variáveis normalmente distribuidas
+
+```{r}
+x = rnorm(1000)
+```
+
+Gráfico QQ
+
+```{r}
+qqnorm(x)
+#linha
+qqline(x)
+```
+
+Teste de Shapiro
+Valor a cima de 0.05, não há indicio para não confirmar a hipótese nula de dados normalmente distribuidos
+
+```{r}
+shapiro.test(x)
+```
+
+Histograma com linha de Densidade
+
+```{r}
+hist(x, main=" ")
+par(new=TRUE)
+plot(density(x), ylab = "", xlab = "", axes = F, lwd = 2.5)
+```
+
+Dados não normalmente distribuidos
+
+```{r}
+m = semTools::mvrnonnorm(1000, c(1,2), matrix(c(10,2,2,5),2,2),
+                         skewness = c(2,2), kurtosis = c(3,3))
+qqnorm(m)
+qqline(m)
+```
+
+```{r}
+shapiro.test(m)
+```
+
+```{r}
+hist(m, main=" ")
+par(new=TRUE)
+plot(density(m), ylab = "", xlab = "", axes = F, lwd = 2.5)
+```

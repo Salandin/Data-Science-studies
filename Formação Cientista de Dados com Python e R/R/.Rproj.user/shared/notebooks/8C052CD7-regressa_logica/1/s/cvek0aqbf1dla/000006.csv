@@ -1,0 +1,7 @@
+"0","confusao = table(prever, Eleicao$SITUACAO)"
+"0","taxaacerto = (confusao[1] + confusao[4]) / sum(confusao)"
+"0","taxaacerto"
+"1","[1]"
+"1"," 0.893617"
+"1","
+"

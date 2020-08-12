@@ -1,0 +1,2 @@
+"0","grafo7 <- graph(edges= c(""Fernando"", ""Pedro"", ""José"", ""Antônio"", ""Fernando"", ""José"",""Fernando"", ""Antônio""))"
+"0","plot(grafo7)"

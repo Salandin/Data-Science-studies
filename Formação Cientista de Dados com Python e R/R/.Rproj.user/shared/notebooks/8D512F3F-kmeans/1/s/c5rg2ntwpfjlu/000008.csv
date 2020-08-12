@@ -1,0 +1,3 @@
+"0","iris2 = iris"
+"0","iris2['grupos'] = cluster$cluster"
+"0","iris2"

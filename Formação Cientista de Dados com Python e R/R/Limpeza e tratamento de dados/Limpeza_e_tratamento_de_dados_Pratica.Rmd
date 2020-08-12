@@ -1,0 +1,105 @@
+---
+title: "Atividade Pratica, Limpeza e tratamento de dados"
+---
+Importando os dados
+```{r}
+dados = read.csv("G:\\backup\\Data Science\\Formação Cientista de Dados com Python e R\\Arquivos\\tempo.csv", sep = ";", na.strings = "", stringsAsFactors = FALSE)
+head(dados)
+summary(dados)
+```
+checando os dados
+```{r}
+summary(dados$Aparencia)
+summary(dados$Temperatura)
+summary(dados$Umidade)
+summary(dados$Vento)
+summary(dados$Jogar)
+```
+tratando os NAs
+```{r}
+#Umidade
+
+summary(dados$Umidade)
+#tratando o NA com a media
+dados[is.na(dados$Umidade),]$Umidade <- median(dados$Umidade, na.rm = T)
+
+#verificando os dados
+plot(dados$Umidade)
+summary(dados$Umidade)
+```
+
+```{r}
+#Vento
+
+summary(dados$Vento)
+#tratando o NA com a moda, Falso
+dados[is.na(dados$Vento),]$Vento <- "FALSO"
+#verificando os dados
+summary(dados$Vento)
+```
+tratando os valores fora de dominio ou valores muito altos
+
+```{r}
+#Aparencia
+summary(dados$Aparencia)
+#Passando um valor dentro do dominio
+dados[!dados$Aparencia %in% c("chuva","nublado","sol"),]$Aparencia = "sol"
+#removendo os valor não utilizado
+dados$Aparencia = factor(dados$Aparencia)
+#verificando os dados
+summary(dados$Aparencia)
+```
+
+```{r}
+#temperatura
+summary(dados$Temperatura)
+plot(dados$Temperatura)
+#Passando um valor entre e 40f e 105f, no caso a média
+dados[dados$Temperatura < 40 | dados$Temperatura > 105,] <- median(dados$Temperatura, na.rm = T)
+
+#visalizando os dados
+summary(dados$Temperatura)
+plot(dados$Temperatura)
+```
+
+```{r}
+#Umidade
+summary(dados$Umidade)
+#passando valor da media nos casos de umidade maior que 100
+dados[dados$Umidade > 100, ]$Umidade <- median(dados$Temperatura, na.rm = T)
+#visualizando os dados
+summary(dados$Umidade)
+```
+
+vendo todos os dados
+
+```{r}
+head(dados)
+summary(dados)
+```
+Tratando o jogar
+```{r}
+summary(dados$Jogar)
+#corrigindo os NAs com as modas
+dados[is.na(dados$Jogar)]$Jogar <- "sim"
+#vendos os dados
+summary(dados$Jogar)
+```
+tratar quando que pode jogar
+```{r}
+summary(dados$Jogar)
+# não pode quando tá chovendo
+dados[!dados$Aparencia %in% c("nublado", "sol"),]$Jogar <- "não"
+#ver os dados
+summary(dados$Jogar)
+str(dados)
+options(stringsAsFactors = FALSE)
+#corrigindo os NAs gerados
+dados$Jogar[is.na(dados$Jogar)] <- as.character("não")
+#vendos os dados
+summary(dados$Jogar)
+```
+
+```{r}
+stargazer(dados)
+```

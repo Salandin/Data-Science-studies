@@ -1,0 +1,5 @@
+"0","plot(comun,UKfaculty)
+"
+"2","Error in plot(y, vertex.color = col, mark.groups = mark.groups, edge.color = edge.color,  : 
+  objeto 'UKfaculty' não encontrado
+"

@@ -1,0 +1,4 @@
+"0","names(resultado)[1] <- 'setosa'"
+"0","names(resultado)[3] <- 'versicolor'"
+"0","names(resultado)[3] <- 'virginica'"
+"0","resultado"

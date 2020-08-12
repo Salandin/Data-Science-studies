@@ -1,0 +1,8 @@
+"0","#install.packages(""randomForest"")"
+"0","library(e1071)"
+"0","library(randomForest)"
+"2","randomForest 4.6-14
+"
+"2","Type rfNews() to see new features/changes/bug fixes.
+"
+"0","credit$class = as.factor(credit$class)"

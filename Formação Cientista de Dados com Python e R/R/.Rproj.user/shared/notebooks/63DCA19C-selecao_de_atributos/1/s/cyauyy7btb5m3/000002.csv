@@ -1,0 +1,4 @@
+"0","set.seed(234)"
+"0","amostra = sample(2,1000,replace=TRUE,prob=c(0.7,0.3))"
+"0","creditotreino = credit[amostra==1,]"
+"0","creditoteste = credit[amostra==2,]"

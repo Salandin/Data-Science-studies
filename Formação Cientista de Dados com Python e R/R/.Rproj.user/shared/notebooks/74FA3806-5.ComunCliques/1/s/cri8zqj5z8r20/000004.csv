@@ -1,0 +1,4 @@
+"0","#install.packages(""igraph"")"
+"0","library(igraph)"
+"0","grafo8 = read_graph(""Grafo.graphml"", format = c(""graphml""))"
+"0","grafo8 = as.undirected(grafo8)"
